@@ -1,0 +1,15 @@
+# Optional: a ready-made MySQL if you don't have one installed.   docker compose up -d
+# Then in backend/.env use:  DB_USER=root  DB_PASSWORD=stockflow
+services:
+  mysql:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: stockflow
+      MYSQL_DATABASE: stockflow
+    ports:
+      - "3306:3306"
+    volumes:
+      - stockflow-db:/var/lib/mysql
+volumes:
+  stockflow-db:

@@ -1,0 +1,30 @@
+### Use with the "REST Client" VS Code extension (humao.rest-client)
+@host = http://localhost:5000/api
+
+### 1. Login (copy the token from the response into @token below)
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{ "email": "admin@stockflow.com", "password": "Admin@123" }
+
+###
+@token = PASTE_TOKEN_HERE
+
+### Dashboard
+GET {{host}}/dashboard/summary
+Authorization: Bearer {{token}}
+
+### Inventory (low stock only)
+GET {{host}}/inventory?low=1
+Authorization: Bearer {{token}}
+
+### Create a stock transfer request
+POST {{host}}/transfers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "from_branch_id": 1, "to_branch_id": 3, "items": [{ "product_id": 1, "quantity": 50 }] }
+
+### Approve it (use the transfer_id returned above)
+POST {{host}}/transfers/3/approve
+Authorization: Bearer {{token}}

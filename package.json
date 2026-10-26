@@ -1,0 +1,14 @@
+{
+  "name": "stockflow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StockFlow - multi-warehouse inventory & distribution (React + Express + MySQL)",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node run.mjs",
+    "dev": "node run.mjs",
+    "setup": "node run.mjs --setup-only",
+    "reset": "node run.mjs --reset"
+  }
+}

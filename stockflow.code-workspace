@@ -1,0 +1,4 @@
+{
+  "folders": [{ "name": "stockflow", "path": "." }],
+  "settings": { "files.eol": "\n", "search.exclude": { "**/node_modules": true } }
+}
